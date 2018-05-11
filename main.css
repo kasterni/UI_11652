@@ -1,0 +1,130 @@
+/*transition: all ease-in-out (número aqui)ms; permite alterar a velocidade*/ 
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    background: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.5px;
+    color: green;
+}
+
+.logo {
+    float: left;
+    font-size: 18px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+header {
+    position: absolute;
+    background: white;
+    padding: 20px;
+    position: relative;
+    border-top: 4px solid green;
+    margin: auto;
+    display: flex;
+}
+
+header::after {
+    content: '';
+    clear: both;
+    display: block;
+    margin: auto;
+}
+
+.nav {
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    width: 100%;
+    text-align: center;
+    background: white;
+    clip-path: circle(0px at top right); /*é possível aplicar top ou right também*/
+    transition: clip-path ease-in-out 800ms;
+}
+
+/* o clip path faz a animação - não alterar isto novamente*/
+
+.nav-open {
+    clip-path: circle(250% at top right);
+    display: block;
+}
+
+.nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav a {
+    color: green;
+    font-size: 14px;
+    display: block;
+    padding: 12px 0;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background: green;
+    color: white;
+}
+
+.categories a {
+    background: white;
+    color: darkseagreen;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hamburger {
+    margin-top: 12px;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    content: no-close-quote;
+    display: block;
+    background: green;
+    height: 3px;
+    width: 25px;
+    transition: all ease-in-out 600ms;
+}
+
+/* HAMBURGER CODE - agradecimentos ao stack overflow*/
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+.open .hamburger {
+    transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+    opacity: 0;
+}
+
+.open .hamburger::after {
+    transform: translateY(-3px) rotate(-90deg);
+}
